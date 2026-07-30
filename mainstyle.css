@@ -9,16 +9,25 @@
     --card-detail: ;
 }
 
+/* body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} */
+
 .offcanvas-header, .offcanvas-body, .navbar.border-bottom.sticky-top {
     background-color: var(--offcanvas-bg);
     color: var(--main-color-1);
 }
 
 .usr-detail-quote {
+    font-style: italic;
     background-color: var(--detail-color-2);
     color: var(--detail-color-3);
     padding: 5px;
     border-radius: 10px;
+}
+
+.rounded-sm.mb-3 {
+    width: auto;
 }
 
 .nav-item .nav-link {
