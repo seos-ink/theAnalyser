@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../img/crosshair.svg" type="image/png">
+    <title>Centro de Notícias - ControlVerse</title>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/mainstyle.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top bg-dark border-bottom border-body" style="border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">ControlVerse</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="registro.html">Registre-se</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Notícias</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Mais
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="sobre.html">Sobre a ControlVerse</a></li>
+                  <li><a class="dropdown-item" href="#">Galeria de Jogos</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Em Construção.</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Desativado</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <main>
+        <header class="IndexHeader">
+            <h1>
+                Centro de Notícias
+            </h1>
+            <p>
+
+            </p>
+        </header>
+        
+        <section style="padding: 1px;">
+            <h2>
+                Destaques da Semana
+            </h2>
+        </section>
+
+        <div class="container">
+          <div class="row">
+              <div class="col-sm-4.5">
+                  <div class="card">
+                      <img src="../img/poster2.png" class="card-img-top" alt="Game 1">
+                      <div class="card-body">
+                          <h5 class="card-title">The World Ends With You: o Jogo dos Reapers</h5>
+                          <p class="card-text">Semana dos Jogos Indie #2 - The World Ends With You e a Estética Modernista</p>
+                          <a href="pages_noticias/twewy_noticia.html" target="_blank" class="btn btn-primary">Veja a Noticia Aqui</a>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="card" data-aos="fade-up">
+                      <img src="../img/fe7_blazingblade.gif" class="card-img-top" alt="Game 1">
+                      <div class="card-body">
+                          <h5 class="card-title">15 RPGs famosos que valem a pena (Re)jogar!</h5>
+                          <p class="card-text">Some example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="pages_noticias/feValky_noticia.html" class="btn btn-primary">Detalhes</a>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="card" data-aos="fade-up">
+                      <img src="../img/metaphor.jpg" class="card-img-top" alt="Game 1">
+                      <div class="card-body">
+                          <h5 class="card-title">Metaphor Re:Fantazio - Tudo Sobre</h5>
+                          <p class="card-text">Com a chegada do novo jogo da Atlus, os fâs questionam: "Será que faz parte da supersaga Shin Megami Tensei? Persona com Steampunk?" E nós da Ctrl respondemos! </p>
+                          <a href="#" class="btn btn-primary">Detalhes</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="card" data-aos="fade-up">
+                        <img src="../img/stateOfPlay.jpg" class="card-img-top" alt="Game 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Vem Aí: State Of Play Fevereiro</h5>
+                            <p class="card-text">Metal Gear Solid ∆: Snake Eater, FNAF Secret of The Mimic, Days Gone Remastered; <br>Confira os novos jogos chegando na PlayStation.</p>
+                            <a href="#" class="btn btn-primary">Confira</a>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+        </div>
+
+        <!-- <section style="padding: 1px;">
+            <h2>
+                Categorias Mais Acessadas
+            </h2>
+        </section>
+
+    <section class="py-5 text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+              <span class="tag"> <a class="tag-link" href="#">⚔️ RPGs</a></span>
+              <span class="tag"> <a class="tag-link" href="#">🐲 Monster Hunter</a></span>
+              <span class="tag"> <a class="tag-link" href="#">🕹️PlayStation</a></span>
+              <span class="tag"> <a class="tag-link" href="#">🐻Danganronpa</a></span>
+              <span class="tag"> <a class="tag-link" href="#">⚔️ Final Fantasy</a></span>
+              <span class="tag"> <a class="tag-link" href="#">NieR</a></span>
+              <span class="tag"> <a class="tag-link" href="#">🗝️Kingdom Hearts</a></span>
+              <span class="tag"> <a class="tag-link" href="#">⚙️Metal Gear Solid</a></span>
+              <span class="tag"> <a class="tag-link" href="#">🔫Persona</a></span>
+              <span class="tag"> <a class="tag-link" href="#">Pokemon</a></span>
+              <span class="tag"> <a class="tag-link" href="#">🛡️Fire Emblem</a></span>
+              <span class="tag"> <a class="tag-link" href="#">☄️CtrlVer Exclusives</a></span>
+              <span class="tag"> <a class="tag-link" href="#">☢️Fallout</a></span>
+              <span class="tag"> <a class="tag-link" href="#">🦈Zenless Zone Zero</a></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <style>
+        .tag {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          display: inline-block;
+          background-color: rgba(0, 0, 0, 0.2);
+          color: #f4fffd;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        .tag-link {
+          text-decoration: none;
+          color: #f4fffd;
+        }
+
+        .tag-link:hover{
+          color: #eaff04;
+          transition: 0.5s;
+        }
+      </style>
+    </section> -->
+        
+
+
+        <section style="padding: 1px;">
+            <h2>
+                Todas as Notícias
+            </h2>
+        </section>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 col-md-4">
+                    <div class="card" data-aos="zoom-in">
+                        <img src="../img/chrono.jpg" class="card-img-top" alt="Game 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Chrono Trigger - O Ancestral dos RPGs em turnos</h5>
+                        <p class="card-text">
+                        Viagens no tempo, um sapo que fala e a última princesa de um reino. O que isso pode dar errado?<br>
+                        Hoje vamos falar do ancestral dos RPGs em turnos, o clássico Chrono Trigger!
+                        </p>
+                        <a href="#" class="btn btn-primary">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-sm-6 col-md-4">
+                <div class="card" data-aos="zoom-in">
+                    <img src="../img/reincarnation.webp" class="card-img-top" alt="Game 1">
+                        <div class="card-body">
+                            <h5 class="card-title">NieR Reincarnation - O primeiro RPG Mobile de Yoko Taro</h5>
+                            <p class="card-text">
+                            Ele entrou e saiu sem ninguém saber!<br>
+                            Hoje vamos falar sobre o primeiro RPG Mobile de Yoko Taro, o criador de Drakengard e Nier, que simplesmente durou apenas dois anos no ar.
+                            </p>
+                            <a href="#" class="btn btn-primary">Detalhes</a>
+                        </div>
+                </div>
+            </div>
+
+                      <div class="col-lg-6 col-sm-6 col-md-4">
+                        <div class="card" data-aos="zoom-in">
+                            <img src="../img/tribe_nine.webp" class="card-img-top" alt="Poster de estreia de Tribe Nine">
+                            <div class="card-body">
+                                <h5 class="card-title">O Novo Jogo dos Criadores de Danganronpa - Tribe Nine (Episódio EXCLUSIVO)</h5>
+                                <p class="card-text">Direto dos mesmos criadores do jogo de mistério e assasinatos japonês "Danganronpa", estreia hoje (20/02) o novo jogo da Akatsuki Games, Tribe Nine!</p>
+                                <a href="pages_noticias/tribeNine_noticia.html" class="btn btn-primary">Detalhes</a>
+                            </div>
+                          </div>
+                        </div>
+
+                    <div class="col-lg-6 col-sm-6 col-md-4">
+                        <div class="card" data-aos="zoom-in">
+                            <img src="../img/twewy-capa-destacada-3-900x506.webp" class="card-img-top" alt="Game 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Podcast da ControlVerse - Spotl7ght Central</h5>
+                                <p class="card-text">O "Episódio #56 - Na Geladeira" já saiu! 
+                                  <br>
+                                O tema de hoje são os jogos "da geladeira" da Square Enix.
+                                </p>
+                                <a href="#" class="btn btn-primary">Assista Agora</a>
+                            </div>
+                        </div>
+                        </div>
+      
+                        <div class="col-lg-6 col-sm-6 col-md-4">
+                        <div class="card" data-aos="zoom-in">
+                            <img src="../img/hideo_kojima.webp" class="card-img-top" alt="Foto do roteirista e criador de Metal Gear, Hideo Kojima.">
+                            <div class="card-body">
+                                <h5 class="card-title">O Futuro de Metal Gear e a Chegada de Death Stranding II</h5>
+                                <p class="card-text">Tivemos a imensa honra de poder intrevistar o "Big Boss" Hideo Kojima aqui no Studio Ctrl...</p>
+                                <a href="" class="btn btn-primary">Veja Essa Notícia</a>
+                            </div>
+                        </div>
+                      </div>
+      
+                      
+      
+                        <div class="col-lg-6 col-sm-6 col-md-4">
+                          <div class="card" data-aos="zoom-in">
+                              <img src="../img/LAIKAalt.jpg" class="card-img-top" alt="Game 1">
+                              <div class="card-body">
+                                  <h5 class="card-title">Vale a Pena Jogar #12: Laika - Aged Through Blood</h5>
+                                  <p class="card-text">
+                                    Sangue, armas, apocalipse , vingança e... Motos! <br>
+                                    Voltamos com mais um episódio de "Vale a Pena Jogar?", estrelando o primeiro Motorvania da categoria, "Laika: Aged Through Blood"!
+                                  </p>
+                                  <a href="#" class="btn btn-primary">Detalhes</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="col-lg-6 col-sm-6 col-md-4">
+                            <div class="card" data-aos="zoom-in">
+                                <img src="../img/revengeance.jpg" class="card-img-top" alt="Game 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Vale a Pena Jogar #11 - Metal Gear Rising: Revengeance</h5>
+                                    <p class="card-text">
+                                      <i>"SNAAAAAAAKE!"</i>
+                                      <br>
+                                      Voltamos com mais um episódio de "Vale a Pena Jogar?", e para preparar a chegada do remake de Metal Gear Solid 3, trouxemos o spin-off dessa grande franquia: Metal Gear Rising - Revengeance!
+                                    </p>
+                                    <a href="#" class="btn btn-primary">Detalhes</a>
+                                </div>
+                              </div>
+                            </div>
+
+                                <div class="col-lg-6 col-sm-6 col-md-4">
+                                  <div class="card" data-aos="zoom-in">
+                                      <img src="../img/darkRoad.jpg" class="card-img-top" alt="Game 1">
+                                      <div class="card-body">
+                                          <h5 class="card-title">Explicando Histórias - Kingdom Hearts Uχ Dark Road</h5>
+                                          <p class="card-text">
+                                            A história do vilão é sempre a melhor, certo?<br>
+                                            Voltamos com mais um episódio de "Explicando Histórias", agora para explicar a história de Xehanort, o vilão de Kingdom Hearts e herói de Dark Road.
+                                          </p>
+                                          <a href="pages_noticias/khDarkRoad.html" class="btn btn-primary">Detalhes</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                    </div>
+              </div>
+        </div>
+
+
+
+      </main>
+
+      <footer>
+        <p>Copyright © 2024-25 Control;Verse e o todo relacionado a ela foi criado por Saulo Santos. Todos os direitos reservados.</p>
+      </footer>
+
+
+      <script src="../js/bootstrap.bundle.min.js"></script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+</body>
+</html>

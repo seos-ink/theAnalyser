@@ -1,0 +1,21 @@
+:root {
+    --main-color-1: #FF9E20;
+    --main-color-2: #1D2128;
+    --detail-color-1: #826fffb7;
+    --detail-color-2: #325e6a9c;
+    --detail-color-3: #F4F2F2;
+    --card-bg: ;
+    --card-detail: ;
+}
+
+.offcanvas-header, .offcanvas-body, .navbar.border-bottom.sticky-top {
+    background-color: var(--main-color-2);
+    color: var(--main-color-1);
+}
+
+.usr-detail-quote {
+    background-color: var(--detail-color-2);
+    color: var(--detail-color-3);
+    padding: 5px;
+    border-radius: 10px;
+}
