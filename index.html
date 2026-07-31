@@ -13,7 +13,7 @@
 
 <body>
 
-    <nav class="navbar border-bottom sticky-top">
+    <nav class="navbar sticky-top">
         <button class="btn btn-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#Backdrop"
             aria-controls="Backdrop">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
@@ -44,7 +44,7 @@
                                 <div class="w-full">
                                     <div
                                         class="flex sm:-mt-1 sm:flex-row sm:justify-start sm:items-center gap-x-2  items-center">
-                                        <h1 class="usr-nameplate"> 
+                                        <h1 class="usr-nameplate">
                                             <!-- border-0 text-lg sm:text-2xl font-semibold mb-0 relative  -->
                                             Break0ut
                                         </h1>
@@ -73,7 +73,8 @@
                                                 </span>
 
                                                 <span>
-                                                    <a href="/globalRanking.php?t=2&amp;o=22250&amp;s=2" style="text-decoration: none">
+                                                    <a href="/globalRanking.php?t=2&amp;o=22250&amp;s=2"
+                                                        style="text-decoration: none">
                                                         #22,262
                                                     </a>
                                                     of 187,110 (Top 11.90%)
@@ -147,7 +148,6 @@
                         </li>
                     </ul>
                     <button class="btn btn-danger">
-
                         Sair da conta
                     </button>
                 </div>
@@ -156,6 +156,48 @@
 
         </div>
     </nav>
+
+    <!-- início da parte principal do site -->
+    <main class="main-content">
+        <div class="content-container">
+            <div class="home-header">
+                <h2 class="home-title">
+                    Bem-vindo de volta
+                </h2>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </main>
 
 </body>
 <script src="js/bootstrap.min.js"></script>

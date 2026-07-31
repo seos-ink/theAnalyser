@@ -1,6 +1,7 @@
 :root {
     --main-color-1: #FF9E20;
     --main-color-2: #1D2128;
+    --main-color-3: #363b56;
     --offcanvas-bg: #1d2129;
     --detail-color-1: #826fffb7;
     --detail-color-2: #325e6a9c;
@@ -13,9 +14,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 } */
 
-.offcanvas-header, .offcanvas-body, .navbar.border-bottom.sticky-top {
+.offcanvas-header, .offcanvas-body, .navbar.sticky-top {
     background-color: var(--offcanvas-bg);
     color: var(--main-color-1);
+    border-bottom: 1px solid var(--main-color-3);
 }
 
 .usr-detail-quote {
@@ -48,4 +50,8 @@
 .btn-nav {
     color: var(--main-color-1);
     font-weight: bolder;
+}
+.main-content {
+    background-color: var(--main-color-3);
+    color: var(--main-color-1)
 }
