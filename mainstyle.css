@@ -53,5 +53,17 @@
 }
 .main-content {
     background-color: var(--main-color-3);
-    color: var(--main-color-1)
+    color: var(--main-color-1);
+    padding: 15px;
+}
+
+.d-block.img-carrosel {
+    width: 600px;
+    height: 315px;
+}
+
+.carousel.slide, .carousel-inner {
+    justify-content: center;
+    width: fit-content;
+    
 }
