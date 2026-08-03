@@ -65,5 +65,7 @@
 .carousel.slide, .carousel-inner {
     justify-content: center;
     width: fit-content;
-    
+}
+.carousel-caption.d-none.d-md-block.left-position {
+    justify-content: end;
 }
