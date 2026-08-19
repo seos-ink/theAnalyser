@@ -57,18 +57,27 @@
     padding: 15px;
 }
 
-.d-block.img-carrosel {
+/* .d-block.img-carrosel {
     width: 600px;
     height: 315px;
-}
+} */
 
-.carousel-item {
-    display: flex;
-}
-.carousel.slide, .carousel-inner {
-    justify-content: center;
+.carousel.slide {
     width: fit-content;
 }
+
+.img-carousel {
+    
+}
+
+.carousel-inner {
+    width: fit-content;
+    display: flex;
+}
 .carousel-caption.d-md-block {
+    /* display: block; */
+    align-self: center;
+    height: 500px;
+    width: 175px;
     background-color: #1D2128;
 }
