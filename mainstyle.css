@@ -62,10 +62,13 @@
     height: 315px;
 }
 
+.carousel-item {
+    display: flex;
+}
 .carousel.slide, .carousel-inner {
     justify-content: center;
     width: fit-content;
 }
-.carousel-caption.d-none.d-md-block.left-position {
-    justify-content: end;
+.carousel-caption.d-md-block {
+    background-color: #1D2128;
 }
