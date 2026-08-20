@@ -97,15 +97,19 @@
 
 .user-baseplate {
     display: flex;
+    margin-bottom: 15px;
+    padding: 1vh;
+    border: 2px solid var(--main-color-1);
+    border-radius: 25px;
 
-
+    background-color: var(--main-color-3);
 }
 
 .usr-nameplate {
-    padding-left: 5px;
+    padding-left: 15px;
 }
 
 .usr-username {
-    padding-left: 5px;
+    padding-left: 15px;
 
 }
