@@ -6,6 +6,7 @@
     --detail-color-1: #826fffb7;
     --detail-color-2: #325e6a9c;
     --detail-color-3: #F4F2F2;
+    --font-color: #f6f6f7;
     --card-bg: ;
     --card-detail: ;
 }
@@ -24,13 +25,13 @@
     font-style: italic;
     background-color: var(--detail-color-2);
     color: var(--detail-color-3);
-    padding: 5px;
-    border-radius: 10px;
+    margin: 0px;
+    border-radius: 5px;
 }
 
-.rounded-sm.mb-3 {
+/*.rounded-sm.mb-3 {
     width: auto;
-}
+}*/
 
 .nav-item .nav-link {
     color: var(--main-color-1);
@@ -70,6 +71,7 @@
     max-height: 100px;
     max-width: 100px;
     border-radius: 25px;
+    margin-right: 15px;
 
     min-height: 75px;
     min-width: 75px;
@@ -89,6 +91,7 @@
 
 .user-info {
     padding: 5px;
+    color: var(--font-color);
 }
 
 .font-bold {
@@ -98,18 +101,20 @@
 .user-baseplate {
     display: flex;
     margin-bottom: 15px;
-    padding: 1vh;
+    padding: 15px;
     border: 2px solid var(--main-color-1);
     border-radius: 25px;
+
+    color: var(--font-color);
 
     background-color: var(--main-color-3);
 }
 
 .usr-nameplate {
-    padding-left: 15px;
+    /*padding-left: 15px;*/
 }
 
 .usr-username {
-    padding-left: 15px;
-
+    /*padding-left: 15px;*/
+    font-family: monospace;
 }
