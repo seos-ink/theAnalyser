@@ -66,8 +66,13 @@
     width: fit-content;
 }
 
-.img-carousel {
-    
+.user-img-offcanvas {
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 25px;
+
+    min-height: 75px;
+    min-width: 75px;
 }
 
 .carousel-inner {
@@ -80,4 +85,27 @@
     height: 500px;
     width: 175px;
     background-color: #1D2128;
+}
+
+.user-info {
+    padding: 5px;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.user-baseplate {
+    display: flex;
+
+
+}
+
+.usr-nameplate {
+    padding-left: 5px;
+}
+
+.usr-username {
+    padding-left: 5px;
+
 }
