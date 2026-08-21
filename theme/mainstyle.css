@@ -60,14 +60,13 @@ body {
     padding: 15px;
 }
 
-.d-block.img-carrosel {
-    width: 1000px;
-    height: 500px;
+.content-container {
+    display: flex;
 }
 
-.carousel.slide {
-    width: fit-content;
-}
+/*.d-block.img-carrosel {
+    
+}*/
 
 .user-img-offcanvas {
     max-height: 100px;
@@ -80,15 +79,16 @@ body {
 }
 
 .carousel-inner {
-    width: fit-content;
-    display: flex;
+    width: 600px;
+    height: 315px;
+    border-radius: 55px;
 }
 .carousel-caption.d-md-block {
     /* display: block; */
-    align-self: center;
-    height: 500px;
-    width: 175px;
-    background-color: #1D2128;
+    background-color: #1d2128ae;
+    border-radius: 25px;
+
+    padding: 15px;
 }
 
 .user-info {
