@@ -13,12 +13,14 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 
 .offcanvas-header, .offcanvas-body, .navbar.sticky-top {
     background-color: var(--offcanvas-bg);
     color: var(--main-color-1);
     border-bottom: 1px solid var(--main-color-3);
+
 }
 
 .usr-detail-quote {
@@ -58,10 +60,10 @@ body {
     padding: 15px;
 }
 
-/* .d-block.img-carrosel {
-    width: 600px;
-    height: 315px;
-} */
+.d-block.img-carrosel {
+    width: 1000px;
+    height: 500px;
+}
 
 .carousel.slide {
     width: fit-content;
@@ -108,10 +110,6 @@ body {
     color: var(--font-color);
 
     background-color: var(--main-color-3);
-}
-
-.usr-nameplate {
-    /*padding-left: 15px;*/
 }
 
 .usr-username {

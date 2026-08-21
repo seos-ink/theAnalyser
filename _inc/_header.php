@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>theAnalyser</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="/theme/mainstyle.css">
-</head>
-
-<body>
-
-    <nav class="navbar sticky-top">
+<nav class="navbar sticky-top">
         <button class="btn btn-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#Backdrop"
             aria-controls="Backdrop">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
@@ -134,7 +119,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/pages/gamelists.html" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="bi bi-list-task"></i>
                                 Lista de reprodução
                             </a>
@@ -158,54 +143,3 @@
 
         </div>
     </nav>
-
-    <!-- início da parte principal do site -->
-    <main class="main-content">
-        <div class="content-container">
-            <div class="home-header">
-                <h2 class="home-title">
-                    Bem-vindo de volta
-                </h2>
-            </div>
-            <div id="carouselExampleIndicators" class="carousel slide">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="img/ogp-en.png" class="d-block img-carrosel" alt="...">
-                        <div class="carousel-caption d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/mhwilds.jpg" class="d-block img-carrosel" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="..." class="d-block img-carrosel" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </main>
-
-</body>
-<script src="js/bootstrap.min.js"></script>
-
-</html>
