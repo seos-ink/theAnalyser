@@ -11,9 +11,9 @@
     --card-detail: ;
 }
 
-/* body {
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-} */
+}
 
 .offcanvas-header, .offcanvas-body, .navbar.sticky-top {
     background-color: var(--offcanvas-bg);
@@ -117,4 +117,8 @@
 .usr-username {
     /*padding-left: 15px;*/
     font-family: monospace;
+}
+
+.info-p {
+    margin: 0;
 }
