@@ -16,7 +16,9 @@ body {
     scroll-behavior: smooth;
 }
 
-.offcanvas-header, .offcanvas-body, .navbar.sticky-top {
+.offcanvas-header,
+.offcanvas-body,
+.navbar.sticky-top {
     background-color: var(--offcanvas-bg);
     color: var(--main-color-1);
     border-bottom: 1px solid var(--main-color-3);
@@ -50,10 +52,12 @@ body {
 
     transition: 0.5s;
 }
+
 .btn-nav {
     color: var(--main-color-1);
     font-weight: bolder;
 }
+
 .main-content {
     background-color: var(--main-color-3);
     color: var(--main-color-1);
@@ -83,6 +87,7 @@ body {
     height: 315px;
     border-radius: 55px;
 }
+
 .carousel-caption.d-md-block {
     /* display: block; */
     background-color: #1d2128ae;
@@ -119,4 +124,54 @@ body {
 
 .info-p {
     margin: 0;
+}
+
+
+/* do backup do Controlverse velho, mudar dps */
+
+:root{
+    --corIndexBG: #143D60;
+    --corFundo01:#27667B;
+    --corFundo02: #AAB396;
+    --corFundo03: #F7EED3;
+    --fonteCor1: #EFE9D5;
+    --fonteCor2: #ECDFCC;
+    --corBtn1: #0B8494;
+    --corBtn2: #18ab95;
+}
+
+.card-title {
+    max-width: 1fr;
+    /* font-size: 35px !important; */
+}
+
+.card {
+    /* background-color: aquamarine; */
+    margin: 12px;
+    min-height: 500px;
+    background-color: var(--corFundo01);
+    color: var(--fonteCor2);
+}
+
+.cardNoticia {
+    padding: 12px;
+    background-color: #001d7abe;
+    color: var(--fonteCor2);
+    border: #05223b solid 3.5px;
+    border-radius: 25px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
 }
