@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
     --main-color-1: #FF9E20;
     --main-color-2: #1D2128;
@@ -132,9 +134,9 @@ body {
 /* ------------------------------------------ */
 
 
-:root{
+:root {
     --corIndexBG: #143D60;
-    --corFundo01:#27667B;
+    --corFundo01: #27667B;
     --corFundo02: #AAB396;
     --corFundo03: #F7EED3;
     --fonteCor1: #EFE9D5;
@@ -182,4 +184,16 @@ body {
 .card-img-top {
     height: 150px;
     border-bottom: 1px solid var(--main-color-1);
+}
+
+.btn-primary {
+    border: 2px solid var(--corBtn2);
+    background-color: transparent;
+}
+
+.btn-primary:hover {
+    color: var(--main-color-3);
+
+    background-color: var(--main-color-1);
+    border: 2px solid var(--main-color-2);
 }
