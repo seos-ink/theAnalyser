@@ -90,7 +90,8 @@ body {
 
 .carousel-caption.d-md-block {
     /* display: block; */
-    background-color: #1d2128ae;
+    background-color: #1d2128c2;
+    color: var(--fonteCor1);
     border-radius: 25px;
 
     padding: 15px;
@@ -126,8 +127,10 @@ body {
     margin: 0;
 }
 
-
+/* ------------------------------------------ */
 /* do backup do Controlverse velho, mudar dps */
+/* ------------------------------------------ */
+
 
 :root{
     --corIndexBG: #143D60;
@@ -148,7 +151,7 @@ body {
 .card {
     /* background-color: aquamarine; */
     margin: 12px;
-    min-height: 500px;
+    min-height: 200px;
     background-color: var(--corFundo01);
     color: var(--fonteCor2);
 }
@@ -174,4 +177,9 @@ body {
 .row {
     display: flex;
     justify-content: space-between;
+}
+
+.card-img-top {
+    height: 150px;
+    border-bottom: 1px solid var(--main-color-1);
 }
