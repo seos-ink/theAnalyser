@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil | theAnalyser</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Bootstrap Icons: somente os ícones, sem Bootstrap CSS -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="icon" href="../img/box.svg" type="image/x-icon">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        analyser: {
+                            50: "#f0f0ff",
+                            500: "#6366f1",
+                            600: "#4f46e5"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Pequenos detalhes que não valem a pena transformar em classes utilitárias. */
+
+        .profile-cover {
+            background:
+                radial-gradient(circle at 15% 30%, rgba(255, 255, 255, .20), transparent 25%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, .14), transparent 30%),
+                linear-gradient(135deg, #24234d 0%, #4338a8 45%, #6366f1 100%);
+        }
+
+        .profile-cover::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(255, 255, 255, .13);
+            border-radius: 9999px;
+            right: -80px;
+            top: -180px;
+        }
+
+        .profile-cover::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            border-radius: 9999px;
+            right: 100px;
+            bottom: -240px;
+        }
+
+        .game-card {
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-900">
+
+    <!-- =========================================================
+         NAVBAR
+         ========================================================= -->
+
+    <nav class="sticky top-0 z-50 flex h-14 items-center border-b border-slate-200 bg-white/95 px-3 shadow-sm backdrop-blur">
+
+        <button
+            id="sidebarOpen"
+            type="button"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-xl text-slate-700 transition hover:bg-slate-100"
+            aria-label="Abrir menu">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <h2 class="ml-auto mr-2 text-lg font-bold tracking-tight text-slate-800 sm:mr-3 sm:text-xl">
+            theAnalyser
+        </h2>
+    </nav>
+
+
+    <!-- =========================================================
+         OVERLAY DO MENU
+         ========================================================= -->
+
+    <div
+        id="sidebarOverlay"
+        class="fixed inset-0 z-[60] hidden bg-black/40 backdrop-blur-[1px]">
+    </div>
+
+
+    <!-- =========================================================
+         MENU LATERAL
+         ========================================================= -->
+
+    <aside
+        id="sidebar"
+        class="fixed left-0 top-0 z-[70] flex h-screen w-80 max-w-[88vw] -translate-x-full flex-col border-r border-slate-200 bg-white shadow-2xl transition-transform duration-300">
+
+        <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+            <h5 class="text-lg font-bold text-slate-800">
+                theAnalyser
+            </h5>
+
+            <button
+                id="sidebarClose"
+                type="button"
+                class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800"
+                aria-label="Fechar menu">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+
+        <div class="flex-1 overflow-y-auto px-4 py-5">
+
+            <!-- Conta -->
+            <div class="rounded-xl bg-slate-50 p-4">
+
+                <div class="flex items-center gap-3">
+                    <img
+                        src="https://media.retroachievements.org/UserPic/aster0id.png?v=0"
+                        alt="Avatar de Saulo Santos"
+                        class="h-14 w-14 rounded-full object-cover ring-2 ring-white shadow">
+
+                    <div class="min-w-0">
+                        <h2 class="truncate text-lg font-bold text-slate-800">
+                            Saulo Santos
+                        </h2>
+
+                        <p class="truncate text-sm text-slate-500">
+                            @break0ut_
+                        </p>
+
+                        <p class="mt-1 truncate text-xs italic text-slate-500">
+                            "Verba Volant, Scripta Manent"
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="mt-4 space-y-2 border-t border-slate-200 pt-4 text-sm">
+
+                    <p class="flex justify-between gap-3">
+                        <span class="font-semibold text-slate-600">Pontos</span>
+                        <span class="text-slate-800">2.080</span>
+                    </p>
+
+                    <p class="flex justify-between gap-3">
+                        <span class="font-semibold text-slate-600">Ranking</span>
+                        <span class="text-slate-800">#22.262</span>
+                    </p>
+
+                    <p class="flex justify-between gap-3">
+                        <span class="font-semibold text-slate-600">Status</span>
+                        <span class="font-medium text-green-600">Online</span>
+                    </p>
+
+                    <p class="flex justify-between gap-3">
+                        <span class="font-semibold text-slate-600">Membro desde</span>
+                        <span class="text-right text-slate-800">15 Set 2024</span>
+                    </p>
+
+                </div>
+            </div>
+
+
+            <hr class="my-5 border-slate-200">
+
+
+            <!-- Navegação -->
+            <ul class="space-y-1">
+
+                <li>
+                    <a
+                        href="../index.html"
+                        class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-indigo-600">
+                        <i class="bi bi-house-fill w-5 text-center"></i>
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-indigo-600">
+                        <i class="bi bi-chat-text-fill w-5 text-center"></i>
+                        Comunidade
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-indigo-600">
+                        <i class="bi bi-journal-bookmark-fill w-5 text-center"></i>
+                        Notícias
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="gamelists.html"
+                        class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-indigo-600">
+                        <i class="bi bi-list-task w-5 text-center"></i>
+                        Lista de reprodução
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="userpage.html"
+                        class="flex items-center gap-3 rounded-lg bg-indigo-50 px-3 py-2.5 text-sm font-semibold text-indigo-600">
+                        <i class="bi bi-person-badge-fill w-5 text-center"></i>
+                        Minha conta
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <hr class="my-5 border-slate-200">
+
+
+            <button
+                type="button"
+                class="w-full rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                <i class="bi bi-box-arrow-right mr-1"></i>
+                Sair da conta
+            </button>
+
+        </div>
+    </aside>
+
+
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL
+         ========================================================= -->
+
+    <main class="min-h-[calc(100vh-3.5rem)] px-2 py-5 sm:px-4 sm:py-7">
+
+        <div class="mx-auto w-full max-w-6xl">
+
+            <!-- =================================================
+                 HERO DO PERFIL
+                 ================================================= -->
+
+            <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+                <!-- Capa -->
+                <div class="profile-cover relative h-44 overflow-hidden sm:h-56">
+
+                    <span class="absolute bottom-4 right-5 z-10 text-[10px] font-medium uppercase tracking-[0.15em] text-white/70 sm:text-xs">
+                        theAnalyser / user profile
+                    </span>
+
+                </div>
+
+
+                <!-- Informações -->
+                <div class="flex flex-col gap-4 px-4 pb-5 sm:px-7 sm:pb-6 lg:flex-row lg:items-end">
+
+                    <!-- Avatar -->
+                    <div class="relative -mt-16 shrink-0 sm:-mt-20">
+
+                        <img
+                            src="https://media.retroachievements.org/UserPic/aster0id.png?v=0"
+                            alt="Avatar de Saulo Santos"
+                            class="h-28 w-28 rounded-full border-[5px] border-white bg-slate-200 object-cover shadow-lg sm:h-36 sm:w-36">
+
+                        <span
+                            title="Online"
+                            class="absolute bottom-2 right-2 h-5 w-5 rounded-full border-4 border-white bg-green-500 sm:bottom-3 sm:right-3">
+                        </span>
+
+                    </div>
+
+
+                    <!-- Nome -->
+                    <div class="min-w-0 flex-1">
+
+                        <div class="flex flex-wrap items-center gap-2">
+                            <h1 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                                Saulo Santos
+                            </h1>
+
+                            <i
+                                class="bi bi-patch-check-fill text-lg text-indigo-500"
+                                title="Usuário verificado">
+                            </i>
+                        </div>
+
+                        <p class="mt-0.5 text-sm text-slate-500">
+                            @break0ut_
+                        </p>
+
+                        <p class="mt-2 text-sm italic text-slate-600">
+                            "Verba Volant, Scripta Manent"
+                        </p>
+
+                    </div>
+
+
+                    <!-- Ações -->
+                    <div class="flex w-full gap-2 lg:w-auto">
+
+                        <button
+                            type="button"
+                            class="flex-1 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 lg:flex-none">
+                            <i class="bi bi-pencil-square mr-1"></i>
+                            Editar perfil
+                        </button>
+
+                        <button
+                            type="button"
+                            title="Mais opções"
+                            class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-300 text-slate-600 transition hover:bg-slate-50 hover:text-slate-900">
+                            <i class="bi bi-three-dots"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Estatísticas -->
+                <div class="grid grid-cols-2 border-t border-slate-200 bg-slate-50 sm:grid-cols-4">
+
+                    <div class="border-b border-slate-200 px-4 py-4 text-center sm:border-b-0 sm:border-r">
+                        <span class="block text-xl font-bold text-slate-900">2.080</span>
+                        <span class="text-xs text-slate-500">Pontos</span>
+                    </div>
+
+                    <div class="border-b border-slate-200 px-4 py-4 text-center sm:border-b-0 sm:border-r">
+                        <span class="block text-xl font-bold text-slate-900">#22.262</span>
+                        <span class="text-xs text-slate-500">Ranking global</span>
+                    </div>
+
+                    <div class="border-r border-slate-200 px-4 py-4 text-center">
+                        <span class="block text-xl font-bold text-slate-900">47</span>
+                        <span class="text-xs text-slate-500">Jogos analisados</span>
+                    </div>
+
+                    <div class="px-4 py-4 text-center">
+                        <span class="block text-xl font-bold text-slate-900">128</span>
+                        <span class="text-xs text-slate-500">Conquistas</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ABAS
+                 ================================================= -->
+
+            <nav class="mt-5 overflow-x-auto border-b border-slate-200">
+
+                <div class="flex min-w-max">
+
+                    <a
+                        href="#overview"
+                        class="border-b-2 border-indigo-500 px-4 py-3 text-sm font-semibold text-indigo-600">
+                        <i class="bi bi-grid-1x2-fill mr-1"></i>
+                        Visão geral
+                    </a>
+
+                    <a
+                        href="#games"
+                        class="border-b-2 border-transparent px-4 py-3 text-sm font-semibold text-slate-500 transition hover:border-slate-300 hover:text-indigo-600">
+                        <i class="bi bi-controller mr-1"></i>
+                        Jogos
+                    </a>
+
+                    <a
+                        href="#achievements"
+                        class="border-b-2 border-transparent px-4 py-3 text-sm font-semibold text-slate-500 transition hover:border-slate-300 hover:text-indigo-600">
+                        <i class="bi bi-trophy-fill mr-1"></i>
+                        Conquistas
+                    </a>
+
+                    <a
+                        href="#activity"
+                        class="border-b-2 border-transparent px-4 py-3 text-sm font-semibold text-slate-500 transition hover:border-slate-300 hover:text-indigo-600">
+                        <i class="bi bi-activity mr-1"></i>
+                        Atividade
+                    </a>
+
+                </div>
+
+            </nav>
+
+
+            <!-- =================================================
+                 GRID PRINCIPAL
+                 ================================================= -->
+
+            <div class="mt-5 grid gap-5 lg:grid-cols-[330px_minmax(0,1fr)]">
+
+
+                <!-- ================= LEFT COLUMN ================= -->
+
+                <aside class="space-y-5">
+
+
+                    <!-- SOBRE -->
+                    <section class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+
+                        <div class="border-b border-slate-200 px-5 py-4">
+                            <h2 class="text-base font-bold text-slate-800">
+                                <i class="bi bi-person-lines-fill mr-1"></i>
+                                Sobre
+                            </h2>
+                        </div>
+
+                        <div class="p-5">
+
+                            <p class="text-sm leading-6 text-slate-500">
+                                Jogador, desenvolvedor e curioso profissional. Gosto de descobrir
+                                o que existe por trás dos jogos, registrar experiências e transformar
+                                boas ideias em projetos.
+                            </p>
+
+
+                            <div class="mt-5 space-y-3">
+
+                                <div class="flex items-center gap-3 text-sm text-slate-500">
+                                    <i class="bi bi-calendar3 w-5 text-center text-indigo-500"></i>
+                                    <span>Membro desde 15 Set 2024</span>
+                                </div>
+
+                                <div class="flex items-center gap-3 text-sm text-slate-500">
+                                    <i class="bi bi-clock-history w-5 text-center text-indigo-500"></i>
+                                    <span>Última atividade há poucos minutos</span>
+                                </div>
+
+                                <div class="flex items-center gap-3 text-sm text-slate-500">
+                                    <i class="bi bi-geo-alt-fill w-5 text-center text-indigo-500"></i>
+                                    <span>Brasil</span>
+                                </div>
+
+                                <div class="flex items-center gap-3 text-sm text-slate-500">
+                                    <i class="bi bi-controller w-5 text-center text-indigo-500"></i>
+                                    <span>47 jogos analisados</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="mt-5 flex flex-wrap gap-2">
+
+                                <span class="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-600">
+                                    RPG
+                                </span>
+
+                                <span class="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-600">
+                                    JRPG
+                                </span>
+
+                                <span class="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-600">
+                                    Indie
+                                </span>
+
+                                <span class="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-600">
+                                    Retro
+                                </span>
+
+                                <span class="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-600">
+                                    Action
+                                </span>
+
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <!-- PROGRESSO -->
+                    <section class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+
+                        <div class="border-b border-slate-200 px-5 py-4">
+                            <h2 class="text-base font-bold text-slate-800">
+                                <i class="bi bi-bar-chart-fill mr-1"></i>
+                                Progresso
+                            </h2>
+                        </div>
+
+                        <div class="p-5">
+
+                            <div class="mb-2 flex items-center justify-between">
+                                <span class="font-bold text-slate-800">Nível 18</span>
+                                <span class="text-xs text-slate-500">2.080 / 2.500 XP</span>
+                            </div>
+
+                            <div
+                                class="h-2.5 overflow-hidden rounded-full bg-slate-200"
+                                role="progressbar"
+                                aria-valuenow="83.2"
+                                aria-valuemin="0"
+                                aria-valuemax="100">
+
+                                <div
+                                    class="h-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-500"
+                                    style="width: 83.2%;">
+                                </div>
+
+                            </div>
+
+                            <p class="mt-2 text-xs text-slate-500">
+                                Faltam 420 XP para alcançar o nível 19.
+                            </p>
+
+                        </div>
+                    </section>
+
+
+                    <!-- CONQUISTAS -->
+                    <section
+                        id="achievements"
+                        class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+
+                        <div class="border-b border-slate-200 px-5 py-4">
+                            <h2 class="text-base font-bold text-slate-800">
+                                <i class="bi bi-trophy-fill mr-1"></i>
+                                Conquistas recentes
+                            </h2>
+                        </div>
+
+                        <div class="space-y-4 p-5">
+
+                            <div class="flex items-center gap-3">
+
+                                <div class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber-50 text-amber-600">
+                                    <i class="bi bi-stars"></i>
+                                </div>
+
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">
+                                        Primeira análise
+                                    </p>
+
+                                    <p class="text-xs text-slate-500">
+                                        Publicou sua primeira análise.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex items-center gap-3">
+
+                                <div class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber-50 text-amber-600">
+                                    <i class="bi bi-controller"></i>
+                                </div>
+
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">
+                                        Maratonista
+                                    </p>
+
+                                    <p class="text-xs text-slate-500">
+                                        Analisou 25 jogos.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex items-center gap-3">
+
+                                <div class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber-50 text-amber-600">
+                                    <i class="bi bi-bookmark-star-fill"></i>
+                                </div>
+
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">
+                                        Colecionador
+                                    </p>
+
+                                    <p class="text-xs text-slate-500">
+                                        Salvou 50 jogos para jogar depois.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
+
+                </aside>
+
+
+                <!-- ================= RIGHT COLUMN ================= -->
+
+                <section class="space-y-5">
+
+
+                    <!-- JOGOS EM DESTAQUE -->
+                    <section
+                        id="games"
+                        class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+
+                        <div class="flex items-center justify-between gap-3 border-b border-slate-200 px-5 py-4">
+
+                            <h2 class="text-base font-bold text-slate-800">
+                                <i class="bi bi-heart-fill mr-1"></i>
+                                Jogos em destaque
+                            </h2>
+
+                            <a
+                                href="#"
+                                class="text-xs font-semibold text-indigo-600 hover:text-indigo-700">
+                                Ver todos
+                            </a>
+
+                        </div>
+
+
+                        <div class="p-5">
+
+                            <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+
+
+                                <!-- GAME CARD -->
+                                <article class="game-card overflow-hidden rounded-xl border border-slate-200 bg-white">
+
+                                    <img
+                                        src="../img/persona3_reload.jpg"
+                                        alt="Persona 3 Reload"
+                                        class="block h-40 w-full object-cover">
+
+                                    <div class="p-3">
+
+                                        <h3 class="text-sm font-bold text-slate-800">
+                                            Persona 3 Reload
+                                        </h3>
+
+                                        <span class="text-xs text-slate-500">
+                                            PC / Console
+                                        </span>
+
+                                        <div class="mt-2 flex items-center gap-1 text-xs font-bold text-amber-600">
+                                            <i class="bi bi-star-fill"></i>
+                                            9,5
+                                        </div>
+
+                                    </div>
+                                </article>
+
+
+                                <!-- GAME CARD -->
+                                <article class="game-card overflow-hidden rounded-xl border border-slate-200 bg-white">
+
+                                    <img
+                                        src="../img/metaphor.jpg"
+                                        alt="Metaphor: ReFantazio"
+                                        class="block h-40 w-full object-cover">
+
+                                    <div class="p-3">
+
+                                        <h3 class="text-sm font-bold text-slate-800">
+                                            Metaphor: ReFantazio
+                                        </h3>
+
+                                        <span class="text-xs text-slate-500">
+                                            PC / Console
+                                        </span>
+
+                                        <div class="mt-2 flex items-center gap-1 text-xs font-bold text-amber-600">
+                                            <i class="bi bi-star-fill"></i>
+                                            9,2
+                                        </div>
+
+                                    </div>
+                                </article>
+
+
+                                <!-- GAME CARD -->
+                                <article class="game-card overflow-hidden rounded-xl border border-slate-200 bg-white">
+
+                                    <img
+                                        src="../img/mhwilds.jpg"
+                                        alt="Monster Hunter Wilds"
+                                        class="block h-40 w-full object-cover">
+
+                                    <div class="p-3">
+
+                                        <h3 class="text-sm font-bold text-slate-800">
+                                            Monster Hunter Wilds
+                                        </h3>
+
+                                        <span class="text-xs text-slate-500">
+                                            PC / Console
+                                        </span>
+
+                                        <div class="mt-2 flex items-center gap-1 text-xs font-bold text-amber-600">
+                                            <i class="bi bi-star-fill"></i>
+                                            8,8
+                                        </div>
+
+                                    </div>
+                                </article>
+
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <!-- ATIVIDADE -->
+                    <section
+                        id="activity"
+                        class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+
+                        <div class="flex items-center justify-between gap-3 border-b border-slate-200 px-5 py-4">
+
+                            <h2 class="text-base font-bold text-slate-800">
+                                <i class="bi bi-lightning-charge-fill mr-1"></i>
+                                Atividade recente
+                            </h2>
+
+                            <span class="text-xs text-slate-400">
+                                Últimos eventos
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+
+                            <div class="flex gap-3 border-b border-slate-200 px-5 py-4">
+
+                                <div class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-600">
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+
+                                <div class="min-w-0">
+                                    <p class="text-sm leading-5 text-slate-600">
+                                        Avaliou <strong class="font-semibold text-slate-800">Persona 3 Reload</strong>
+                                        com <strong class="font-semibold text-slate-800">9,5/10</strong>.
+                                    </p>
+
+                                    <span class="mt-1 block text-[11px] text-slate-400">
+                                        Há 12 minutos
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex gap-3 border-b border-slate-200 px-5 py-4">
+
+                                <div class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-600">
+                                    <i class="bi bi-trophy-fill"></i>
+                                </div>
+
+                                <div class="min-w-0">
+                                    <p class="text-sm leading-5 text-slate-600">
+                                        Desbloqueou a conquista
+                                        <strong class="font-semibold text-slate-800">Maratonista</strong>.
+                                    </p>
+
+                                    <span class="mt-1 block text-[11px] text-slate-400">
+                                        Há 2 horas
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex gap-3 border-b border-slate-200 px-5 py-4">
+
+                                <div class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-600">
+                                    <i class="bi bi-bookmark-plus-fill"></i>
+                                </div>
+
+                                <div class="min-w-0">
+                                    <p class="text-sm leading-5 text-slate-600">
+                                        Adicionou <strong class="font-semibold text-slate-800">Final Fantasy VI</strong>
+                                        à lista <strong class="font-semibold text-slate-800">Quero jogar</strong>.
+                                    </p>
+
+                                    <span class="mt-1 block text-[11px] text-slate-400">
+                                        Ontem
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex gap-3 border-b border-slate-200 px-5 py-4">
+
+                                <div class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-600">
+                                    <i class="bi bi-chat-square-text-fill"></i>
+                                </div>
+
+                                <div class="min-w-0">
+                                    <p class="text-sm leading-5 text-slate-600">
+                                        Comentou na análise de
+                                        <strong class="font-semibold text-slate-800">NieR: Automata</strong>.
+                                    </p>
+
+                                    <span class="mt-1 block text-[11px] text-slate-400">
+                                        2 dias atrás
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex gap-3 px-5 py-4">
+
+                                <div class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-600">
+                                    <i class="bi bi-controller"></i>
+                                </div>
+
+                                <div class="min-w-0">
+                                    <p class="text-sm leading-5 text-slate-600">
+                                        Marcou <strong class="font-semibold text-slate-800">Monster Hunter Wilds</strong>
+                                        como <strong class="font-semibold text-slate-800">jogado</strong>.
+                                    </p>
+
+                                    <span class="mt-1 block text-[11px] text-slate-400">
+                                        4 dias atrás
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </section>
+
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- =========================================================
+         JAVASCRIPT DO MENU LATERAL
+         ========================================================= -->
+
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const sidebarOverlay = document.getElementById("sidebarOverlay");
+        const sidebarOpen = document.getElementById("sidebarOpen");
+        const sidebarClose = document.getElementById("sidebarClose");
+
+        function openSidebar() {
+            sidebar.classList.remove("-translate-x-full");
+            sidebarOverlay.classList.remove("hidden");
+            document.body.classList.add("overflow-hidden");
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add("-translate-x-full");
+            sidebarOverlay.classList.add("hidden");
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        sidebarOpen.addEventListener("click", openSidebar);
+        sidebarClose.addEventListener("click", closeSidebar);
+        sidebarOverlay.addEventListener("click", closeSidebar);
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeSidebar();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

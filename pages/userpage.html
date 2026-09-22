@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>theAnalyser</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../theme/theme.css">
+    <link rel="icon" href="../img/box.svg" type="image/x-icon">
+
+    <style>
+        /* =========================================================
+           USER PAGE
+           Estilos locais da página de perfil.
+           ========================================================= */
+
+        :root {
+            --profile-accent: #6366f1;
+            --profile-accent-dark: #4f46e5;
+            --profile-bg: #f5f6fa;
+            --profile-card: #ffffff;
+            --profile-text: #202124;
+            --profile-muted: #737783;
+            --profile-border: #e6e7eb;
+        }
+
+        body {
+            background: var(--profile-bg);
+            color: var(--profile-text);
+        }
+
+        .main-content {
+            min-height: calc(100vh - 56px);
+            padding: 30px 18px 60px;
+        }
+
+        .profile-container {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+        }
+
+        /* ---------- Profile hero ---------- */
+
+        .profile-hero {
+            position: relative;
+            overflow: hidden;
+            background: var(--profile-card);
+            border: 1px solid var(--profile-border);
+            border-radius: 18px;
+            box-shadow: 0 5px 22px rgba(0, 0, 0, 0.06);
+        }
+
+        .profile-cover {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 15% 30%, rgba(255, 255, 255, .20), transparent 25%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, .14), transparent 30%),
+                linear-gradient(135deg, #24234d 0%, #4338a8 45%, #6366f1 100%);
+        }
+
+        .profile-cover::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(255, 255, 255, .13);
+            border-radius: 50%;
+            right: -80px;
+            top: -180px;
+        }
+
+        .profile-cover::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            border-radius: 50%;
+            right: 100px;
+            bottom: -240px;
+        }
+
+        .cover-label {
+            position: absolute;
+            right: 22px;
+            bottom: 18px;
+            color: rgba(255, 255, 255, .72);
+            font-size: .78rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .profile-main {
+            display: flex;
+            gap: 22px;
+            align-items: flex-end;
+            padding: 0 28px 24px;
+        }
+
+        .profile-avatar-wrapper {
+            margin-top: -76px;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid var(--profile-card);
+            background: #ddd;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, .16);
+        }
+
+        .online-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 13px;
+            bottom: 14px;
+            border: 4px solid white;
+            border-radius: 50%;
+            background: #22c55e;
+        }
+
+        .profile-heading {
+            flex: 1;
+            min-width: 0;
+            padding-top: 15px;
+        }
+
+        .profile-name-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .profile-name {
+            margin: 0;
+            font-size: 1.9rem;
+            font-weight: 700;
+        }
+
+        .verified-badge {
+            color: var(--profile-accent);
+            font-size: 1.15rem;
+        }
+
+        .profile-username {
+            color: var(--profile-muted);
+            margin: 3px 0 8px;
+        }
+
+        .profile-quote {
+            margin: 0;
+            color: #555a66;
+            font-style: italic;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 8px;
+            padding-top: 15px;
+        }
+
+        .btn-profile {
+            border-radius: 9px;
+            font-weight: 600;
+        }
+
+        .btn-profile-primary {
+            background: var(--profile-accent);
+            border-color: var(--profile-accent);
+            color: white;
+        }
+
+        .btn-profile-primary:hover {
+            background: var(--profile-accent-dark);
+            border-color: var(--profile-accent-dark);
+            color: white;
+        }
+
+        /* ---------- Stats ---------- */
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--profile-border);
+            background: #fafafd;
+        }
+
+        .stat {
+            padding: 17px 20px;
+            text-align: center;
+            border-right: 1px solid var(--profile-border);
+        }
+
+        .stat:last-child {
+            border-right: 0;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 1.35rem;
+            font-weight: 750;
+            color: var(--profile-text);
+        }
+
+        .stat-label {
+            display: block;
+            margin-top: 2px;
+            color: var(--profile-muted);
+            font-size: .82rem;
+        }
+
+        /* ---------- Content grid ---------- */
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 330px minmax(0, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .profile-card {
+            background: var(--profile-card);
+            border: 1px solid var(--profile-border);
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .035);
+            overflow: hidden;
+        }
+
+        .card-header-custom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 17px 19px;
+            border-bottom: 1px solid var(--profile-border);
+        }
+
+        .card-title-custom {
+            margin: 0;
+            font-size: 1.03rem;
+            font-weight: 700;
+        }
+
+        .card-body-custom {
+            padding: 19px;
+        }
+
+        /* ---------- About ---------- */
+
+        .about-text {
+            color: #5f636e;
+            line-height: 1.65;
+            margin-bottom: 18px;
+        }
+
+        .info-list {
+            display: grid;
+            gap: 13px;
+            margin: 0;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            color: #5d626d;
+            font-size: .9rem;
+        }
+
+        .info-row i {
+            width: 21px;
+            text-align: center;
+            color: var(--profile-accent);
+            font-size: 1rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 17px;
+        }
+
+        .profile-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: #f0f0ff;
+            color: #5551b8;
+            font-size: .76rem;
+            font-weight: 600;
+        }
+
+        /* ---------- Level ---------- */
+
+        .level-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 9px;
+        }
+
+        .level-number {
+            font-weight: 700;
+        }
+
+        .level-xp {
+            color: var(--profile-muted);
+            font-size: .8rem;
+        }
+
+        .progress {
+            height: 9px;
+            border-radius: 999px;
+            background: #e9eaf0;
+        }
+
+        .progress-bar {
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--profile-accent), #8b5cf6);
+        }
+
+        .level-description {
+            margin: 9px 0 0;
+            color: var(--profile-muted);
+            font-size: .79rem;
+        }
+
+        /* ---------- Tabs ---------- */
+
+        .profile-tabs {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--profile-border);
+        }
+
+        .profile-tabs .nav-link {
+            color: #6b707b;
+            border: 0;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            padding: 13px 16px;
+            font-weight: 600;
+        }
+
+        .profile-tabs .nav-link:hover {
+            color: var(--profile-accent);
+        }
+
+        .profile-tabs .nav-link.active {
+            color: var(--profile-accent);
+            background: transparent;
+            border-bottom-color: var(--profile-accent);
+        }
+
+        /* ---------- Games ---------- */
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 13px;
+        }
+
+        .game-card {
+            overflow: hidden;
+            border: 1px solid var(--profile-border);
+            border-radius: 11px;
+            background: white;
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+        }
+
+        .game-cover {
+            width: 100%;
+            height: 145px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .game-info {
+            padding: 11px 12px 12px;
+        }
+
+        .game-title {
+            margin: 0 0 3px;
+            font-size: .92rem;
+            font-weight: 700;
+        }
+
+        .game-platform {
+            color: var(--profile-muted);
+            font-size: .75rem;
+        }
+
+        .game-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 8px;
+            color: #d59600;
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
+        /* ---------- Activity ---------- */
+
+        .activity-list {
+            display: grid;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 12px;
+            padding: 15px 19px;
+            border-bottom: 1px solid var(--profile-border);
+        }
+
+        .activity-item:last-child {
+            border-bottom: 0;
+        }
+
+        .activity-icon {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: #f0f0ff;
+            color: var(--profile-accent);
+        }
+
+        .activity-content {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .activity-text {
+            margin: 0;
+            color: #464a54;
+            font-size: .89rem;
+            line-height: 1.45;
+        }
+
+        .activity-text strong {
+            color: #242730;
+        }
+
+        .activity-time {
+            display: block;
+            margin-top: 4px;
+            color: #989ca6;
+            font-size: .73rem;
+        }
+
+        /* ---------- Achievements ---------- */
+
+        .achievement-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .achievement {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .achievement-icon {
+            width: 43px;
+            height: 43px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            border-radius: 12px;
+            background: #fff4d7;
+            color: #d99700;
+            font-size: 1.15rem;
+        }
+
+        .achievement-name {
+            margin: 0;
+            font-size: .87rem;
+            font-weight: 700;
+        }
+
+        .achievement-description {
+            margin: 2px 0 0;
+            color: var(--profile-muted);
+            font-size: .75rem;
+        }
+
+        /* ---------- Responsive ---------- */
+
+        @media (max-width: 900px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            .main-content {
+                padding: 18px 10px 45px;
+            }
+
+            .profile-cover {
+                height: 170px;
+            }
+
+            .profile-main {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 0 18px 20px;
+            }
+
+            .profile-avatar-wrapper {
+                margin-top: -65px;
+            }
+
+            .profile-avatar {
+                width: 125px;
+                height: 125px;
+            }
+
+            .profile-heading {
+                padding-top: 0;
+            }
+
+            .profile-actions {
+                width: 100%;
+                padding-top: 0;
+            }
+
+            .profile-actions .btn {
+                flex: 1;
+            }
+
+            .profile-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: 0;
+            }
+
+            .stat:nth-child(-n+2) {
+                border-bottom: 1px solid var(--profile-border);
+            }
+
+            .profile-tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+
+            .profile-tabs .nav-link {
+                white-space: nowrap;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 430px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .game-cover {
+                height: 190px;
+            }
+
+            .profile-name {
+                font-size: 1.55rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!--
+    <nav class="navbar sticky-top">
+        <button class="btn btn-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#Backdrop"
+            aria-controls="Backdrop">
+            <img src="https://retroachievements.org/UserPic/aster0id.png" alt="">
+        </button>
+
+        <h2 class="nav-title" style="padding-right: 10px;">theAnalyser (logo)</h2>
+
+        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="Backdrop"
+            aria-labelledby="staticBackdropLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="staticBackdropLabel">theAnalyser</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="e">
+                    <div class="content-container">
+                        <div class="container-account-details">
+                            <div class="relative mb-2">
+                                <div class="user-baseplate">
+                                    <img src="https://media.retroachievements.org/UserPic/aster0id.png?v=0"
+                                        alt="Break0ut's avatar" class="user-img-offcanvas">
+                                    <div class="user-session">
+                                        <h2 class="usr-nameplate">
+                                            <!-- border-0 text-lg sm:text-2xl font-semibold mb-0 relative  -->
+                                            Saulo Santos
+                                        </h2>
+
+                                        <h6 class="usr-username">
+                                            <span>
+                                                @break0ut_
+                                            </span>
+                                        </h6>
+
+                                        <p class="usr-detail-quote">
+                                            "Verba Volant, Scripta Manent"
+                                        </p>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="w-full" class="padding-top: 10px">
+
+                                    <div class="user-info">
+                                        <p class="info-p">
+                                            <span class="font-bold">
+                                                Pontos Atuais:
+                                            </span>
+                                            <span>
+                                                2,080
+                                            </span>
+                                        </p>
+
+                                        <!--<div class="flex gap-x-2">-->
+                                        <p class="info-p">
+                                            <span class="font-bold">
+                                                Ranking:
+                                            </span>
+
+                                            <span>
+                                                <a href="/globalRanking.php?t=2&amp;o=22250&amp;s=2"
+                                                    style="text-decoration: none">
+                                                    #22,262
+                                                </a>
+                                                of 187,110 (Top 11.90%)
+                                            </span>
+                                        </p>
+                                        <!--</div>-->
+
+                                        <p class="info-p">
+                                            <span class="font-bold">Última Atividade:</span>
+                                            <span class="cursor-help" title="25 Jul 2026, 18:54">
+                                                online
+                                            </span>
+                                        </p>
+
+                                        <p class="info-p">
+                                            <span class="font-bold">Membro desde:</span>
+                                            <span>
+                                                15 Set 2024
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex gap-x-1 items-center mt-2 mb-2 top-5 right-0 sm:hidden md:mt-0 md:flex md:flex-col md:items-end md:gap-y-1 md:absolute lg:hidden xl:flex xl:absolute">
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="navbar-nav">
+                        <li>
+                            <hr class="divider" />
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-house-fill"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-chat-text-fill"></i>
+                                Comunidade
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-journal-bookmark-fill"></i>
+                                Notícias
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/gamelists.html" class="nav-link">
+                                <i class="bi bi-list-task"></i>
+                                Lista de reprodução
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/userpage.html" class="nav-link">
+                                <i class="bi bi-person-badge-fill"></i>
+                                Minha conta
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="divider" />
+                        </li>
+                    </ul>
+                    <button class="btn btn-danger">
+                        Sair da conta
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav> --
+
+    <main class="main-content">
+        <div class="profile-container">
+
+            <!-- HERO DO PERFIL -->
+            <section class="profile-hero">
+
+                <div class="profile-cover">
+                    <span class="cover-label">
+                        theAnalyser / user profile
+                    </span>
+                </div>
+
+                <div class="profile-main">
+
+                    <div class="profile-avatar-wrapper">
+                        <img src="https://media.retroachievements.org/UserPic/aster0id.png?v=0"
+                            alt="Avatar de Saulo Santos" class="profile-avatar">
+
+                        <span class="online-dot" title="Online"></span>
+                    </div>
+
+                    <div class="profile-heading">
+
+                        <div class="profile-name-row">
+                            <h1 class="profile-name">Saulo Santos</h1>
+                            <i class="bi bi-patch-check-fill verified-badge" title="Usuário verificado"></i>
+                        </div>
+
+                        <p class="profile-username">@break0ut_</p>
+
+                        <p class="profile-quote">
+                            "Verba Volant, Scripta Manent"
+                        </p>
+
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="btn btn-profile btn-profile-primary">
+                            <i class="bi bi-pencil-square"></i>
+                            Editar perfil
+                        </button>
+
+                        <button class="btn btn-outline-secondary btn-profile" title="Mais opções">
+                            <i class="bi bi-three-dots"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- ESTATÍSTICAS -->
+                <div class="profile-stats">
+
+                    <div class="stat">
+                        <span class="stat-value">2.080</span>
+                        <span class="stat-label">Pontos</span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="stat-value">#22.262</span>
+                        <span class="stat-label">Ranking global</span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="stat-value">47</span>
+                        <span class="stat-label">Jogos analisados</span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="stat-value">128</span>
+                        <span class="stat-label">Conquistas</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ABAS -->
+            <ul class="nav nav-tabs profile-tabs" id="profileTabs">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#overview">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        Visão geral
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#games">
+                        <i class="bi bi-controller"></i>
+                        Jogos
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#achievements">
+                        <i class="bi bi-trophy-fill"></i>
+                        Conquistas
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#activity">
+                        <i class="bi bi-activity"></i>
+                        Atividade
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <!-- GRID PRINCIPAL -->
+            <div class="profile-grid">
+
+                <!-- ================= LEFT COLUMN ================= -->
+                <aside>
+
+                    <!-- SOBRE -->
+                    <section class="profile-card mb-3">
+                        <div class="card-header-custom">
+                            <h2 class="card-title-custom">
+                                <i class="bi bi-person-lines-fill"></i>
+                                Sobre
+                            </h2>
+                        </div>
+
+                        <div class="card-body-custom">
+
+                            <p class="about-text">
+                                Jogador, desenvolvedor e curioso profissional. Gosto de descobrir
+                                o que existe por trás dos jogos, registrar experiências e transformar
+                                boas ideias em projetos.
+                            </p>
+
+                            <div class="info-list">
+
+                                <div class="info-row">
+                                    <i class="bi bi-calendar3"></i>
+                                    <span>Membro desde 15 Set 2024</span>
+                                </div>
+
+                                <div class="info-row">
+                                    <i class="bi bi-clock-history"></i>
+                                    <span>Última atividade há poucos minutos</span>
+                                </div>
+
+                                <div class="info-row">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                    <span>Brasil</span>
+                                </div>
+
+                                <div class="info-row">
+                                    <i class="bi bi-controller"></i>
+                                    <span>47 jogos analisados</span>
+                                </div>
+
+                            </div>
+
+                            <div class="tag-list">
+                                <span class="profile-tag">RPG</span>
+                                <span class="profile-tag">JRPG</span>
+                                <span class="profile-tag">Indie</span>
+                                <span class="profile-tag">Retro</span>
+                                <span class="profile-tag">Action</span>
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <!-- NÍVEL -->
+                    <section class="profile-card mb-3">
+                        <div class="card-header-custom">
+                            <h2 class="card-title-custom">
+                                <i class="bi bi-bar-chart-fill"></i>
+                                Progresso
+                            </h2>
+                        </div>
+
+                        <div class="card-body-custom">
+
+                            <div class="level-header">
+                                <span class="level-number">Nível 18</span>
+                                <span class="level-xp">2.080 / 2.500 XP</span>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 83.2%;" aria-valuenow="83.2"
+                                    aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
+
+                            <p class="level-description">
+                                Faltam 420 XP para alcançar o nível 19.
+                            </p>
+
+                        </div>
+                    </section>
+
+
+                    <!-- CONQUISTAS -->
+                    <section class="profile-card" id="achievements">
+
+                        <div class="card-header-custom">
+                            <h2 class="card-title-custom">
+                                <i class="bi bi-trophy-fill"></i>
+                                Conquistas recentes
+                            </h2>
+                        </div>
+
+                        <div class="card-body-custom">
+
+                            <div class="achievement-list">
+
+                                <div class="achievement">
+                                    <div class="achievement-icon">
+                                        <i class="bi bi-stars"></i>
+                                    </div>
+
+                                    <div>
+                                        <p class="achievement-name">Primeira análise</p>
+                                        <p class="achievement-description">
+                                            Publicou sua primeira análise.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="achievement">
+                                    <div class="achievement-icon">
+                                        <i class="bi bi-controller"></i>
+                                    </div>
+
+                                    <div>
+                                        <p class="achievement-name">Maratonista</p>
+                                        <p class="achievement-description">
+                                            Analisou 25 jogos.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="achievement">
+                                    <div class="achievement-icon">
+                                        <i class="bi bi-bookmark-star-fill"></i>
+                                    </div>
+
+                                    <div>
+                                        <p class="achievement-name">Colecionador</p>
+                                        <p class="achievement-description">
+                                            Salvou 50 jogos para jogar depois.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
+
+                </aside>
+
+
+                <!-- ================= RIGHT COLUMN ================= -->
+                <section>
+
+                    <!-- JOGOS FAVORITOS -->
+                    <section class="profile-card mb-3" id="games">
+
+                        <div class="card-header-custom">
+                            <h2 class="card-title-custom">
+                                <i class="bi bi-heart-fill"></i>
+                                Jogos em destaque
+                            </h2>
+
+                            <a href="#" class="small text-decoration-none">
+                                Ver todos
+                            </a>
+                        </div>
+
+                        <div class="card-body-custom">
+
+                            <div class="games-grid">
+
+                                <article class="game-card">
+                                    <img src="../img/persona3_reload.jpg" alt="Persona 3 Reload" class="game-cover">
+
+                                    <div class="game-info">
+                                        <h3 class="game-title">Persona 3 Reload</h3>
+                                        <span class="game-platform">PC / Console</span>
+
+                                        <div class="game-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            9,5
+                                        </div>
+                                    </div>
+                                </article>
+
+
+                                <article class="game-card">
+                                    <img src="../img/metaphor.jpg" alt="Metaphor: ReFantazio" class="game-cover">
+
+                                    <div class="game-info">
+                                        <h3 class="game-title">Metaphor: ReFantazio</h3>
+                                        <span class="game-platform">PC / Console</span>
+
+                                        <div class="game-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            9,2
+                                        </div>
+                                    </div>
+                                </article>
+
+
+                                <article class="game-card">
+                                    <img src="../img/mhwilds.jpg" alt="Monster Hunter Wilds" class="game-cover">
+
+                                    <div class="game-info">
+                                        <h3 class="game-title">Monster Hunter Wilds</h3>
+                                        <span class="game-platform">PC / Console</span>
+
+                                        <div class="game-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            8,8
+                                        </div>
+                                    </div>
+                                </article>
+
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <!-- ATIVIDADE -->
+                    <section class="profile-card" id="activity">
+
+                        <div class="card-header-custom">
+                            <h2 class="card-title-custom">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                Atividade recente
+                            </h2>
+
+                            <span class="text-muted small">Últimos eventos</span>
+                        </div>
+
+                        <div class="activity-list">
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+
+                                <div class="activity-content">
+                                    <p class="activity-text">
+                                        Avaliou <strong>Persona 3 Reload</strong> com
+                                        <strong>9,5/10</strong>.
+                                    </p>
+
+                                    <span class="activity-time">
+                                        Há 12 minutos
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    <i class="bi bi-trophy-fill"></i>
+                                </div>
+
+                                <div class="activity-content">
+                                    <p class="activity-text">
+                                        Desbloqueou a conquista
+                                        <strong>Maratonista</strong>.
+                                    </p>
+
+                                    <span class="activity-time">
+                                        Há 2 horas
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    <i class="bi bi-bookmark-plus-fill"></i>
+                                </div>
+
+                                <div class="activity-content">
+                                    <p class="activity-text">
+                                        Adicionou <strong>Final Fantasy VI</strong> à lista
+                                        <strong>Quero jogar</strong>.
+                                    </p>
+
+                                    <span class="activity-time">
+                                        Ontem
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    <i class="bi bi-chat-square-text-fill"></i>
+                                </div>
+
+                                <div class="activity-content">
+                                    <p class="activity-text">
+                                        Comentou na análise de <strong>NieR: Automata</strong>.
+                                    </p>
+
+                                    <span class="activity-time">
+                                        2 dias atrás
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    <i class="bi bi-controller"></i>
+                                </div>
+
+                                <div class="activity-content">
+                                    <p class="activity-text">
+                                        Marcou <strong>Monster Hunter Wilds</strong> como
+                                        <strong>jogado</strong>.
+                                    </p>
+
+                                    <span class="activity-time">
+                                        4 dias atrás
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
+
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+
+
+
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>
