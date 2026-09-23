@@ -13,152 +13,154 @@
 </head>
 
 <body>
+    <nav
+        class="sticky top-0 z-50 flex h-14 items-center border-b border-slate-200 bg-white/95 px-3 shadow-sm backdrop-blur">
 
-    <nav class="navbar sticky-top">
-        <button class="btn btn-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#Backdrop"
-            aria-controls="Backdrop">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-            </svg>
+        <button id="sidebarOpen" type="button"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-xl text-slate-700 transition hover:bg-slate-100"
+            aria-label="Abrir menu">
+            <img src="https://retroachievements.org/UserPic/aster0id.png" alt="" style="border-radius: 25px;">
         </button>
 
-        <h2 class="nav-title" style="padding-right: 10px;">theAnalyser (logo)</h2>
-
-        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="Backdrop"
-            aria-labelledby="staticBackdropLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="staticBackdropLabel">theAnalyser</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div class="e">
-                    <div class="content-container">
-                        <div class="container-account-details">
-                            <div class="relative mb-2">
-                                <div class="user-baseplate">
-                                    <img src="https://media.retroachievements.org/UserPic/aster0id.png?v=0"
-                                        alt="Break0ut's avatar" class="user-img-offcanvas">
-                                    <div class="user-session">
-                                        <h2 class="usr-nameplate">
-                                            <!-- border-0 text-lg sm:text-2xl font-semibold mb-0 relative  -->
-                                            Saulo Santos
-                                        </h2>
-
-                                        <h6 class="usr-username">
-                                            <span>
-                                                @break0ut_
-                                            </span>
-                                        </h6>
-
-                                        <p class="usr-detail-quote">
-                                            "Verba Volant, Scripta Manent"
-                                        </p>
-
-                                    </div>
-                                </div>
+        <h2 class="ml-auto mr-2 text-lg font-bold tracking-tight text-slate-800 sm:mr-3 sm:text-xl">
+            theAnalyser
+        </h2>
+    </nav>
 
 
-                                <div class="w-full" class="padding-top: 10px">
+    <!-- =========================================================
+         OVERLAY DO MENU
+         ========================================================= -->
 
-                                    <div class="user-info">
-                                        <p class="info-p">
-                                            <span class="font-bold">
-                                                Pontos Atuais:
-                                            </span>
-                                            <span>
-                                                2,080
-                                            </span>
-                                        </p>
+    <div id="sidebarOverlay" class="fixed inset-0 z-[60] hidden bg-black/40 backdrop-blur-[1px]">
+    </div>
 
-                                        <!--<div class="flex gap-x-2">-->
-                                        <p class="info-p">
-                                            <span class="font-bold">
-                                                Ranking:
-                                            </span>
 
-                                            <span>
-                                                <a href="/globalRanking.php?t=2&amp;o=22250&amp;s=2"
-                                                    style="text-decoration: none">
-                                                    #22,262
-                                                </a>
-                                                of 187,110 (Top 11.90%)
-                                            </span>
-                                        </p>
-                                        <!--</div>-->
+    <!-- =========================================================
+         MENU LATERAL
+         ========================================================= -->
 
-                                        <p class="info-p">
-                                            <span class="font-bold">Última Atividade:</span>
-                                            <span class="cursor-help" title="25 Jul 2026, 18:54">
-                                                online
-                                            </span>
-                                        </p>
+    <aside id="sidebar"
+        class="fixed left-0 top-0 z-[70] flex h-screen w-80 max-w-[88vw] -translate-x-full flex-col border-r border-slate-200 bg-white shadow-2xl transition-transform duration-300">
 
-                                        <p class="info-p">
-                                            <span class="font-bold">Membro desde:</span>
-                                            <span>
-                                                15 Set 2024
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+        <div class=" flex items-center justify-between border-b border-slate-200 px-5 py-4">
+            <h5 class="text-lg font-bold text-slate-800">
+                theAnalyser
+            </h5>
 
-                            <div
-                                class="flex gap-x-1 items-center mt-2 mb-2 top-5 right-0 sm:hidden md:mt-0 md:flex md:flex-col md:items-end md:gap-y-1 md:absolute lg:hidden xl:flex xl:absolute">
-                            </div>
-                        </div>
+            <button id="sidebarClose" type="button"
+                class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800"
+                aria-label="Fechar menu"></button>
+            <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+
+        <div class="flex-1 overflow-y-auto px-4 py-5">
+            <!-- Conta -->
+            <div class="rounded-xl bg-slate-50 p-4">
+
+                <div class="flex items-center gap-3">
+                    <img src="https://media.retroachievements.org/UserPic/aster0id.png?v=0" alt="Avatar de Saulo Santos"
+                        class="h-14 w-14 rounded-full object-cover ring-2 ring-white shadow">
+
+                    <div class="min-w-0">
+                        <h2 class="truncate text-lg font-bold text-slate-800">
+                            Saulo Santos
+                        </h2>
+
+                        <p class="truncate text-sm text-slate-500">
+                            @break0ut_
+                        </p>
+
+                        <p class="mt-1 truncate text-xs italic text-slate-500">
+                            "Verba Volant, Scripta Manent"
+                        </p>
                     </div>
+                </div>
 
-                    <ul class="navbar-nav">
-                        <li>
-                            <hr class="divider" />
-                        </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-house-fill"></i>
-                                Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-chat-text-fill"></i>
-                                Comunidade
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-journal-bookmark-fill"></i>
-                                Notícias
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/gamelists.html" class="nav-link">
-                                <i class="bi bi-list-task"></i>
-                                Lista de reprodução
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/userpage.html" class="nav-link">
-                                <i class="bi bi-person-badge-fill"></i>
-                                Minha conta
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="divider" />
-                        </li>
-                    </ul>
-                    <button class="btn btn-danger">
-                        Sair da conta
-                    </button>
+                <div class="mt-4 space-y-2 border-t border-slate-200 pt-4 text-sm">
+
+                    <p class="flex justify-between gap-3">
+                        <span class="font-semibold text-slate-600">Pontos</span>
+                        <span class="text-slate-800">2.080</span>
+                    </p>
+
+                    <p class="flex justify-between gap-3">
+                        <span class="font-semibold text-slate-600">Ranking</span>
+                        <span class="text-slate-800">#22.262</span>
+                    </p>
+
+                    <p class="flex justify-between gap-3">
+                        <span class="font-semibold text-slate-600">Status</span>
+                        <span class="font-medium text-green-600">Online</span>
+                    </p>
+
+                    <p class="flex justify-between gap-3">
+                        <span class="font-semibold text-slate-600">Membro desde</span>
+                        <span class="text-right text-slate-800">15 Set 2024</span>
+                    </p>
+
                 </div>
             </div>
-        </div>
 
+
+            <hr class="my-5 border-slate-200">
+
+
+            <!-- Navegação -->
+            <ul class="space-y-1">
+
+                <li>
+                    <a href="index.html"
+                        class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-indigo-600">
+                        <i class="bi bi-house-fill w-5 text-center"></i>
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/pages/pages_comunidade/home.html"
+                        class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-indigo-600">
+                        <i class="bi bi-chat-text-fill w-5 text-center"></i>
+                        Comunidade
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/pages/pages_noticias/home.html"
+                        class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-indigo-600">
+                        <i class="bi bi-journal-bookmark-fill w-5 text-center"></i>
+                        Notícias
+                    </a>
+                </li>
+
+                <li>
+                    <a href="gamelists.html"
+                        class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-indigo-600">
+                        <i class="bi bi-list-task w-5 text-center"></i>
+                        Lista de reprodução
+                    </a>
+                </li>
+
+                <li>
+                    <a href="userpage.html"
+                        class="flex items-center gap-3 rounded-lg bg-indigo-50 px-3 py-2.5 text-sm font-semibold text-indigo-600">
+                        <i class="bi bi-person-badge-fill w-5 text-center"></i>
+                        Minha conta
+                    </a>
+                </li>
+            </ul>
+
+            <hr class="my-5 border-slate-200">
+            <button type="button"
+                class="w-full rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                <i class="bi bi-box-arrow-right mr-1"></i>
+                Sair da conta
+            </button>
         </div>
-    </nav>
+    </aside>
 
     <!-- início da parte principal do site -->
     <main class="main-content">
@@ -290,7 +292,31 @@
         </div>
     </main>
 
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOpen = document.getElementById('sidebarOpen');
+        const sidebarClose = document.getElementById('sidebarClose');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            sidebar.classList.add('translate-x-0');
+
+            sidebarOverlay.classList.remove('hidden');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('translate-x-0');
+            sidebar.classList.add('-translate-x-full');
+
+            sidebarOverlay.classList.add('hidden');
+        }
+
+        sidebarOpen.addEventListener('click', openSidebar);
+        sidebarClose.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </body>
-<script src="js/bootstrap.min.js"></script>
 
 </html>
