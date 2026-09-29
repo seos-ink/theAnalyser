@@ -61,9 +61,9 @@ body {
 }
 
 .main-content {
-    /* background-image: url(../img/ff7_crisiscore.png);
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
+    /* background-color: var(--main-color-3); */
+    /* background-image: url(../img/outerwilds_.webp);
+    background-repeat: no-repeat; */
     color: var(--main-color-mist);
     padding: 15px;
 }
