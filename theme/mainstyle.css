@@ -61,9 +61,7 @@ body {
 }
 
 .main-content {
-    /* background-color: var(--main-color-3); */
-    /* background-image: url(../img/outerwilds_.webp);
-    background-repeat: no-repeat; */
+    background-color: var(--main-color-3);
     color: var(--main-color-mist);
     padding: 15px;
 }
@@ -777,4 +775,3 @@ body {
     background-color: var(--main-color-mist);
     border: 2px solid var(--main-color-2);
 }
-
