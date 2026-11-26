@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil | theAnalyser</title>
+    <title>Listas de Reprodução | theAnalyser</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -171,149 +171,267 @@
     </aside>
 
     <div class="main-content">
-        <section>
+        <div class="list-grid">
 
-            <!-- JOGOS FAVORITOS -->
-            <section class="profile-card mb-3" id="games">
+            <section class="profile-card" id="achievements">
 
                 <div class="card-header-custom">
                     <h2 class="card-title-custom">
-                        <i class="bi bi-heart-fill"></i>
-                        Jogos em destaque
+                        <i class="bi bi-trophy-fill"></i>
+                        Conquistas recentes
                     </h2>
-
-                    <a href="#" class="small text-decoration-none">
-                        Ver todos
-                    </a>
                 </div>
 
                 <div class="card-body-custom">
 
-                    <div class="games-grid">
+                    <div class="achievement-list">
 
-                        <article class="game-card">
-                            <img src="../img/persona3_reload.jpg" alt="Persona 3 Reload" class="game-cover">
-
-                            <div class="game-info">
-                                <h3 class="game-title">Persona 3 Reload</h3>
-                                <span class="game-platform">PC / Console</span>
-
-                                <div class="game-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    9,5
-                                </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="bi bi-stars"></i>
                             </div>
-                        </article>
 
-
-                        <article class="game-card">
-                            <img src="../img/metaphor.jpg" alt="Metaphor: ReFantazio" class="game-cover">
-
-                            <div class="game-info">
-                                <h3 class="game-title">Metaphor: ReFantazio</h3>
-                                <span class="game-platform">PC / Console</span>
-
-                                <div class="game-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    9,2
-                                </div>
+                            <div>
+                                <p class="achievement-name">Primeira análise</p>
+                                <p class="achievement-description">
+                                    Publicou sua primeira análise.
+                                </p>
                             </div>
-                        </article>
+                        </div>
 
-
-                        <article class="game-card">
-                            <img src="../img/mhwilds.jpg" alt="Monster Hunter Wilds" class="game-cover">
-
-                            <div class="game-info">
-                                <h3 class="game-title">Monster Hunter Wilds</h3>
-                                <span class="game-platform">PC / Console</span>
-
-                                <div class="game-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    8,8
-                                </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="bi bi-controller"></i>
                             </div>
-                        </article>
+
+                            <div>
+                                <p class="achievement-name">Maratonista</p>
+                                <p class="achievement-description">
+                                    Analisou 25 jogos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="bi bi-bookmark-star-fill"></i>
+                            </div>
+
+                            <div>
+                                <p class="achievement-name">Colecionador</p>
+                                <p class="achievement-description">
+                                    Salvou 50 jogos para jogar depois.
+                                </p>
+                            </div>
+                        </div>
 
                     </div>
 
                 </div>
             </section>
 
-            <section class="profile-card mb-3" id="games">
 
-                <div class="card-header-custom">
-                    <h2 class="card-title-custom">
-                        <i class="bi bi-clock-fill"></i>
-                        Jogos recentes
-                    </h2>
+            <section>
+                <aside>
+                    <section class="profile-card mb-3" id="games">
 
-                    <a href="#" class="small text-decoration-none">
-                        Ver todos
-                    </a>
-                </div>
+                        <div class="card-header-custom">
+                            <h2 class="card-title-custom">
+                                <i class="bi bi-heart-fill"></i>
+                                Jogos em destaque
+                            </h2>
 
-                <div class="card-body-custom">
+                            <a href="#" class="small text-decoration-none">
+                                Ver todos
+                            </a>
+                        </div>
 
-                    <div class="games-grid">
+                        <div class="card-body-custom">
 
-                        <article class="game-card">
-                            <img src="../img/mhrise_hero.jpg" alt="Monster Hunter Rise" class="game-cover">
+                            <div class="games-grid">
 
-                            <div class="game-info">
-                                <h3 class="game-title">Monster Hunter: Rise</h3>
-                                <span class="game-platform">PC / Console</span>
+                                <article class="game-card">
+                                    <img src="../img/persona3_reload.jpg" alt="Persona 3 Reload" class="game-cover">
 
-                                <div class="game-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    8,9
+                                    <div class="game-info">
+                                        <h3 class="game-title">Persona 3 Reload</h3>
+                                        <span class="game-platform">PC / Console</span>
+
+                                        <div class="game-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            9,5
+                                        </div>
+                                    </div>
+                                </article>
+
+
+                                <article class="game-card">
+                                    <img src="../img/metaphor.jpg" alt="Metaphor: ReFantazio" class="game-cover">
+
+                                    <div class="game-info">
+                                        <h3 class="game-title">Metaphor: ReFantazio</h3>
+                                        <span class="game-platform">PC / Console</span>
+
+                                        <div class="game-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            9,2
+                                        </div>
+                                    </div>
+                                </article>
+
+
+                                <article class="game-card">
+                                    <img src="../img/mhwilds.jpg" alt="Monster Hunter Wilds" class="game-cover">
+
+                                    <div class="game-info">
+                                        <h3 class="game-title">Monster Hunter Wilds</h3>
+                                        <span class="game-platform">PC / Console</span>
+
+                                        <div class="game-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            8,8
+                                        </div>
+                                    </div>
+                                </article>
+
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section class="profile-card mb-3" id="games">
+
+                        <div class="card-header-custom">
+                            <h2 class="card-title-custom">
+                                <i class="bi bi-clock-fill"></i>
+                                Jogos recentes
+                            </h2>
+
+                            <a href="#" class="small text-decoration-none">
+                                Ver todos
+                            </a>
+                        </div>
+
+                        <div class="card-body-custom">
+
+                            <div class="games-grid">
+
+                                <article class="game-card">
+                                    <img src="../img/mhrise_hero.jpg" alt="Monster Hunter Rise" class="game-cover">
+
+                                    <div class="game-info">
+                                        <h3 class="game-title">Monster Hunter: Rise</h3>
+                                        <span class="game-platform">PC / Console</span>
+
+                                        <div class="game-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            8,9
+                                        </div>
+
+                                        <span class="activity-time">
+                                            10 horas atrás
+                                        </span>
+                                    </div>
+                                </article>
+
+
+                                <article class="game-card">
+                                    <img src="../img/ffvi_hero.jpg" alt="Final Fantasy VI" class="game-cover">
+
+                                    <div class="game-info">
+                                        <h3 class="game-title">Final Fantasy VI Advance</h3>
+                                        <span class="game-platform">Gameboy Advance</span>
+
+                                        <div class="game-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            9,9
+                                        </div>
+
+                                        <span class="activity-time">
+                                            2 dias atrás
+                                        </span>
+                                    </div>
+                                </article>
+
+                                <article class="game-card">
+                                    <img src="../img/ffcrisiscore_hero.png" alt="Crisis Core: FFVII" class="game-cover">
+
+                                    <div class="game-info">
+                                        <h3 class="game-title">Crisis Core: Final Fantasy VII</h3>
+                                        <span class="game-platform">PlayStation Portable</span>
+
+                                        <div class="game-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            8,8
+                                        </div>
+
+                                        <span class="activity-time">
+                                            3 dias atrás
+                                        </span>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="profile-card" id="achievements">
+
+                        <div class="card-header-custom">
+                            <h2 class="card-title-custom">
+                                <i class="bi bi-trophy-fill"></i>
+                                Conquistas recentes
+                            </h2>
+                        </div>
+
+                        <div class="card-body-custom">
+
+                            <div class="achievement-list">
+
+                                <div class="achievement">
+                                    <div class="achievement-icon">
+                                        <i class="bi bi-stars"></i>
+                                    </div>
+
+                                    <div>
+                                        <p class="achievement-name">Primeira análise</p>
+                                        <p class="achievement-description">
+                                            Publicou sua primeira análise.
+                                        </p>
+                                    </div>
                                 </div>
 
-                                <span class="activity-time">
-                                    10 horas atrás
-                                </span>
-                            </div>
-                        </article>
+                                <div class="achievement">
+                                    <div class="achievement-icon">
+                                        <i class="bi bi-controller"></i>
+                                    </div>
 
-
-                        <article class="game-card">
-                            <img src="../img/ffvi_hero.jpg" alt="Final Fantasy VI" class="game-cover">
-
-                            <div class="game-info">
-                                <h3 class="game-title">Final Fantasy VI Advance</h3>
-                                <span class="game-platform">Gameboy Advance</span>
-
-                                <div class="game-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    9,9
+                                    <div>
+                                        <p class="achievement-name">Maratonista</p>
+                                        <p class="achievement-description">
+                                            Analisou 25 jogos.
+                                        </p>
+                                    </div>
                                 </div>
 
-                                <span class="activity-time">
-                                    2 dias atrás
-                                </span>
-                            </div>
-                        </article>
+                                <div class="achievement">
+                                    <div class="achievement-icon">
+                                        <i class="bi bi-bookmark-star-fill"></i>
+                                    </div>
 
-                        <article class="game-card">
-                            <img src="../img/ffcrisiscore_hero.png" alt="Crisis Core: FFVII" class="game-cover">
-
-                            <div class="game-info">
-                                <h3 class="game-title">Crisis Core: Final Fantasy VII</h3>
-                                <span class="game-platform">PlayStation Portable</span>
-
-                                <div class="game-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    8,8
+                                    <div>
+                                        <p class="achievement-name">Colecionador</p>
+                                        <p class="achievement-description">
+                                            Salvou 50 jogos para jogar depois.
+                                        </p>
+                                    </div>
                                 </div>
 
-                                <span class="activity-time">
-                                    3 dias atrás
-                                </span>
                             </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
+
+                        </div>
+                    </section>
+                </aside>
+        </div>
     </div>
 
 

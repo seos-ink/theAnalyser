@@ -2219,6 +2219,10 @@ body {
   background-color: var(--main-color-mist);
   border: 2px solid var(--main-color-2);
 }
+.list-grid {
+  display: flex;
+  justify-content: space-between;
+}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
